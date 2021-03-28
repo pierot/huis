@@ -74,11 +74,13 @@ jQuery(document).ready(function ($) {
   })
 
   document.querySelectorAll(".project").forEach(function (el) {
-    var figure = el.querySelector("figure")
-    var imgUrl = figure.style.backgroundImage.slice(4, -1).replace(/"/g, "")
-    imgUrl = "https://img.imageboss.me/van-noortstraat-15b/width/800/" + imgUrl
+    if(window.location.hostname == "huis.noort.be") {
+      var figure = el.querySelector("figure")
+      var imgUrl = figure.style.backgroundImage.slice(4, -1).replace(/"/g, "")
+      imgUrl = "https://img.imageboss.me/van-noortstraat-15b/width/800/" + imgUrl
 
-    figure.style.backgroundImage = "url(" + imgUrl +")"
+      figure.style.backgroundImage = "url(" + imgUrl +")"
+    }
 
     el.addEventListener("click", function (e) {
       var figure = e.currentTarget.querySelector("figure")
