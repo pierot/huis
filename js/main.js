@@ -1,6 +1,24 @@
 // AOS
 AOS.init({duration: 1000})
 
+document.querySelectorAll(".project").forEach(function (el) {
+  var size = "width/700"
+
+  if(window.location.hostname == "huis.noort.be") {
+    var figure = el.querySelector("figure")
+    var imgUrl = cleanBgImg(figure.style.backgroundImage)
+    imgUrl = "https://img.imageboss.me/van-noortstraat-15b/" + size + "/" + imgUrl
+
+    figure.style.backgroundImage = "url(" + imgUrl +")"
+  }
+
+  el.addEventListener("click", function (e) {
+    var figure = e.currentTarget.querySelector("figure")
+    var imgUrl = cleanBgImg(figure.style.backgroundImage).replace(size, "cdn")
+    window.open(imgUrl)
+  })
+})
+
 jQuery(document).ready(function ($) {
   "use strict"
 
@@ -73,24 +91,8 @@ jQuery(document).ready(function ($) {
     }
   })
 
-  document.querySelectorAll(".project").forEach(function (el) {
-    if(window.location.hostname == "huis.noort.be") {
-      var figure = el.querySelector("figure")
-      var imgUrl = figure.style.backgroundImage.slice(4, -1).replace(/"/g, "")
-      imgUrl = "https://img.imageboss.me/van-noortstraat-15b/width/800/" + imgUrl
-
-      figure.style.backgroundImage = "url(" + imgUrl +")"
-    }
-
-    el.addEventListener("click", function (e) {
-      var figure = e.currentTarget.querySelector("figure")
-      var imgUrl = figure.style.backgroundImage
-        .slice(4, -1)
-        .replace(/"/g, "")
-        .replace("width/600", "cdn")
-        .replace("width/800", "cdn")
-      window.open(imgUrl)
-    })
-  })
+  var cleanBgImg = function(val) {
+    return val.slice(4, -1).replace(/"/g, "")
+  }
 })
 
