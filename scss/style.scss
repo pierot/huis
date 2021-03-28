@@ -15,6 +15,23 @@ body {
 h1, h2, h3, h4, h5 {
 	color: $black;
 }
+/* @include media-breakpoint-down(md) { */
+/* 	h1 { */
+/* 		font-size: $font-size-base * 2.25; */
+/* 	} */
+/* 	h2 { */
+/* 		font-size: $font-size-base * 1.8; */
+/* 	} */
+/* 	h3 { */
+/* 		font-size: $font-size-base * 1.6; */
+/* 	} */
+/* 	h4 { */
+/* 		font-size: $font-size-base * 1.4; */
+/* 	} */
+/* 	h5 { */
+/* 		font-size: $font-size-base * 1.2; */
+/* 	} */
+/* } */
 a {
 	transition: .3s all ease;
 	&:hover, &:active, &:focus {
@@ -28,8 +45,11 @@ a {
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: 35px 0;
+	padding: 15px 0;
 	z-index: 99999;
+	@include media-breakpoint-up(sm) {
+		padding: 35px 0;
+	}
 	.container-fluid {
 		max-width: 100%;
 	}
@@ -315,9 +335,6 @@ a {
 		transition: .3s all ease-out;
 	}
 	.cta-inner {
-		// position: relative;
-		// overflow: hidden;
-		// height: 48px;
 		display: block;
 		text-align: center;
 	}
@@ -946,13 +963,25 @@ textarea.form-control {
   font-size: 60px;
 
   @include media-breakpoint-down(sm) {
-    font-size: 40px;
+    font-size: 30px;
+  }
+}
+
+.templateux-hero h3, .intro h3 {
+	font-size: 1.5rem;
+	line-height: 140%;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.25rem;
+    line-height: 140%;
   }
 }
 
 .templateux-navbar .site-logo a {
   @include media-breakpoint-down(sm) {
-    font-size: 20px;
+    font-size: 18px;
+    padding-top: 5px;
+    display: inline-block;
   }
 }
 
