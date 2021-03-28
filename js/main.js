@@ -15,7 +15,6 @@ jQuery(document).ready(function ($) {
 
   $('a.js-smoothscroll[href^="#"]').click(function () {
     $root.animate({scrollTop: $($.attr(this, "href")).offset().top - 40}, 500)
-
     return false
   })
 
