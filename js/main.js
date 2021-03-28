@@ -2,12 +2,12 @@
 AOS.init({duration: 1000})
 
 document.querySelectorAll(".project").forEach(function (el) {
-  var size = "width/700"
+  var size = "w=800"
 
   if(window.location.hostname == "huis.noort.be") {
     var figure = el.querySelector("figure")
     var imgUrl = cleanBgImg(figure.style.backgroundImage)
-    imgUrl = "https://img.imageboss.me/van-noortstraat-15b/" + size + "/" + imgUrl
+    imgUrl = "https://cdn.statically.io/img/huis.noort.be/" + size + "/" + imgUrl
 
     figure.style.backgroundImage = "url(" + imgUrl +")"
   }
@@ -32,12 +32,7 @@ jQuery(document).ready(function ($) {
   var $root = $("html, body")
 
   $('a.js-smoothscroll[href^="#"]').click(function () {
-    $root.animate(
-      {
-        scrollTop: $($.attr(this, "href")).offset().top - 40,
-      },
-      500
-    )
+    $root.animate({scrollTop: $($.attr(this, "href")).offset().top - 40}, 500)
 
     return false
   })
