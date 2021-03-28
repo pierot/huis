@@ -1,6 +1,10 @@
 // AOS
 AOS.init({duration: 1000})
 
+var cleanBgImg = function(val) {
+  return val.slice(4, -1).replace(/"/g, "")
+}
+
 document.querySelectorAll(".project").forEach(function (el) {
   var size = "w=800"
 
@@ -85,9 +89,5 @@ jQuery(document).ready(function ($) {
       $(".js-templateux-menu").fadeIn(300)
     }
   })
-
-  var cleanBgImg = function(val) {
-    return val.slice(4, -1).replace(/"/g, "")
-  }
 })
 
