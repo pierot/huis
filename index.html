@@ -28,9 +28,7 @@
   <link rel="stylesheet" href="css/animsition.min.css">
   <link rel="stylesheet" href="css/aos.min.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <script src="js/scripts-all.js"></script>
-  <script src="js/main.js"></script>
+  <script>console.log(new Date())</script>
 </head>
 <body>
 
@@ -61,7 +59,7 @@
     <section class="templateux-hero">
       <div class="container">
         <div class="row align-items-center justify-content-center intro">
-          <div class="col-md-10" data-aos="fade-up">
+          <div class="col-md-12" data-aos="fade-up">
             <h1>
               <span class="mark">Te koop.</span>
               <br>
@@ -121,8 +119,6 @@
             <br />
             <strong>Prijs: <span class="mark">459.000 EUR</span></strong>
             <br />
-            <strong>Netto elektriciteitsverbruik: <span class="mark">4000 kWh per jaar</span></strong>
-            <br />
             <strong>Gasverbruik: <span class="mark">50 kWh/m<sup>2</sup> per jaar</span></strong>
             <br />
             <strong>Energielabel: <span class="mark">in aanvraag</span></strong>
@@ -130,7 +126,7 @@
           <div class="col-md-6">
             <strong>Elektrische installatie: <span class="mark">Niko domotica</span></strong>
             <br />
-            <strong>Verwarming: <span class="mark">Hoog rendementsketel op aardgas</span></strong>
+            <strong>Verwarming: <span class="mark">Hoog rendementsketel</span></strong>
           </div>
         </div>
 
@@ -486,5 +482,30 @@
 
   </div>
 
+  <script>console.log(new Date())</script>
+  <script>
+    document.querySelectorAll(".project").forEach(function (el) {
+      var cleanBgImg = function(val) { return val.slice(4, -1).replace(/"/g, "") }
+      var size = "w=800"
+
+      console.log(window.location.hostname)
+      if(window.location.hostname == "huis.noort.be") {
+        var figure = el.querySelector("figure")
+        var imgUrl = cleanBgImg(figure.style.backgroundImage)
+        imgUrl = "https://cdn.statically.io/img/huis.noort.be/" + size + "/" + imgUrl
+
+        figure.style.backgroundImage = "url(" + imgUrl +")"
+      }
+
+      el.addEventListener("click", function (e) {
+        var figure = e.currentTarget.querySelector("figure")
+        var imgUrl = cleanBgImg(figure.style.backgroundImage).replace(size, "cdn")
+        window.open(imgUrl)
+      })
+    })
+  </script>
+
+  <script src="js/scripts-all.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,28 +1,6 @@
 // AOS
 AOS.init({duration: 1000})
 
-var cleanBgImg = function(val) {
-  return val.slice(4, -1).replace(/"/g, "")
-}
-
-document.querySelectorAll(".project").forEach(function (el) {
-  var size = "w=800"
-
-  if(window.location.hostname == "huis.noort.be") {
-    var figure = el.querySelector("figure")
-    var imgUrl = cleanBgImg(figure.style.backgroundImage)
-    imgUrl = "https://cdn.statically.io/img/huis.noort.be/" + size + "/" + imgUrl
-
-    figure.style.backgroundImage = "url(" + imgUrl +")"
-  }
-
-  el.addEventListener("click", function (e) {
-    var figure = e.currentTarget.querySelector("figure")
-    var imgUrl = cleanBgImg(figure.style.backgroundImage).replace(size, "cdn")
-    window.open(imgUrl)
-  })
-})
-
 jQuery(document).ready(function ($) {
   "use strict"
 
