@@ -493,12 +493,11 @@
 
       var figure = el.querySelector("figure")
       var imgUrl = path + figure.getAttribute("src")
-      figure.setAttribute("src", imgUrl)
-      figure.setAttribute("src-new", imgUrl)
+      // figure.setAttribute("src-new", imgUrl)
       figure.style.backgroundImage = "url(" + imgUrl +")"
 
       el.addEventListener("click", function (e) {
-        window.open(e.currentTarget.querySelector("figure").getAttribute("src-new"))
+        window.open(e.currentTarget.querySelector("figure").getAttribute("src"))
       })
     })
   </script>
