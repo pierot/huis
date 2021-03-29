@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/animsition.min.css">
   <link rel="stylesheet" href="css/aos.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="dns-prefetch" href="//cdn.statically.io">
   <script>console.log(new Date())</script>
 </head>
 <body>
@@ -485,18 +486,19 @@
   <script>console.log(new Date())</script>
   <script>
     document.querySelectorAll(".project").forEach(function (el) {
-      var size = "w=800"
+      var params = "w=800/f=auto/q=95"
       var path = window.location.hostname == "huis.noort.be" ?
-        "https://cdn.statically.io/img/huis.noort.be/" + size + "/" :
+        "https://cdn.statically.io/img/huis.noort.be/" + params + "/" :
         ""
 
       var figure = el.querySelector("figure")
       var imgUrl = path + figure.getAttribute("src")
       figure.setAttribute("src", imgUrl)
+      figure.setAttribute("src-new", imgUrl)
       figure.style.backgroundImage = "url(" + imgUrl +")"
 
       el.addEventListener("click", function (e) {
-        window.open(e.currentTarget.querySelector("figure").getAttribute("src"))
+        window.open(e.currentTarget.querySelector("figure").getAttribute("src-new"))
       })
     })
   </script>

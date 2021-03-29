@@ -23,6 +23,7 @@ jQuery(document).ready(function ($) {
     $("body").removeClass("menu-open")
     $(".js-templateux-menu").css("display", "block")
   }
+
   // Window Resize
   $(window).resize(function () {
     var $this = $(this)
