@@ -491,14 +491,12 @@
         ""
 
       var figure = el.querySelector("figure")
-      var imgUrl = figure.attributes.src.value
-      imgUrl = path + imgUrl
+      var imgUrl = path + figure.getAttribute("src")
+      figure.setAttribute("src", imgUrl)
       figure.style.backgroundImage = "url(" + imgUrl +")"
 
       el.addEventListener("click", function (e) {
-        var figure = e.currentTarget.querySelector("figure")
-        var imgUrl = figure.style.backgroundImage.slice(8, -1).replace(/"/g, "").replace(size + "/", "")
-        window.open(imgUrl)
+        window.open(e.currentTarget.querySelector("figure").getAttribute("src"))
       })
     })
   </script>
